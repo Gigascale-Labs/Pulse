@@ -1,0 +1,7 @@
+Extract dataset (df_molts = pd.read_csv("hf://datasets/ronantakizawa/moltbook/moltbook_posts.csv")
+
+Normalise and clean dataset to get pure english, removing html links and anything not tokenisable.
+
+Create embeddings from this dataset by inputting the data into sentence-transformers/all-MiniLM-L6-v2 (384-dimension embeddings were created in the paper, but there may be less because only 7k posts are used). Store these embeddings in Pinecone database.
+
+Use RAG methods (reference: https://arxiv.org/abs/2507.09901) to create personas and then input these into AgentTorch LPM, allows for varied descriptions from a distribution created by the LPM
