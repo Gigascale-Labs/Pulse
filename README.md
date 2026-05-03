@@ -1,7 +1,9 @@
 # Project-Sim
 # proj-sim
 
-> **Scalable, validated, robust LMAS framework** — bridging behaviorally-grounded persona archetypes with differentiable population-scale simulation.
+Our goal:
+
+> **A scalable, validated, versatile LMAS framework** - bridging behaviorally-grounded persona archetypes with differentiable population-scale simulation.
 
 Built on two seminal papers: Chopra et al. (LPMs / AgentTorch) and Amin, Salminen & Jansen (PEP / Moltbook personas). The goal is a pipeline where GraphRAG-decoded agent personae act as distributional checkpoints that billions of simulated agents sample from, stepping through time according to environmental context.
 
