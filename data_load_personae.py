@@ -1,5 +1,14 @@
+import numpy as np
 import pandas as pd
+from sentence_transformers import SentenceTransformer
 
-df_molts = pd.read_csv("hf://datasets/ronantakizawa/moltbook/moltbook_posts.csv")
-df_submolts = pd.read_csv("hf://datasets/ronantakizawa/moltbook/moltbook_submolts.csv")
+import torch 
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name(0))
+
+# Load data - using observatory dataset
+from datasets import load_dataset
+df = load_dataset("SimulaMet/moltbook-observatory-archive", "posts")
+print(f"Loaded {len(df)} posts")
+  # see what columns exist
 
