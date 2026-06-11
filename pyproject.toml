@@ -1,0 +1,21 @@
+[project]
+name = "project-sim"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cudf-cu13>=26.6.0",
+    "cuml-cu13>=26.6.0",
+    "datasets>=5.0.0",
+    "numpy>=2.4.6",
+    "pandas>=2.0,<2.4",
+    "python-dotenv>=1.2.2",
+    "scikit-learn>=1.9.0",
+    "sentence-transformers>=5.5.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+]
