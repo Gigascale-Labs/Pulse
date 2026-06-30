@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv pip show *)",
+      "Bash(uv cache dir)"
+    ]
+  }
+}
