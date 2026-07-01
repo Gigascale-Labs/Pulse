@@ -69,6 +69,8 @@ Comments from peer-review:
 
 Amin et al. missing pieces: see DFD [here](https://drive.google.com/file/d/1JKyW9sdZcWSQ44bmUfituQ8JH_eMpDWj/view?usp=sharing)
 
+- [x] Remove the UMAP→KMeans re-cluster methods (PCA→UMAP, PCA50→UMAP, raw→UMAP). UMAP preserves local neighbourhood structure for visualization. It breaks longer distances and density to produce artifically tight clusters and can create both false tears and high densities that don't exist in the original data. KMeans on the other hand uses global distances to cluster. Correspondingly we saw kmeans on UMAP created highly unbalanced clusters, which was useless, so we deleted it.
+
 ---
 
 ## Future Directions
