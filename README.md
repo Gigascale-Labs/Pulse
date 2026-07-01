@@ -65,7 +65,7 @@ cluster_k_posts.txt → MiroFish GraphRAG pipeline
 Comments from peer-review:
 - [ ] Better check for alignment, based on hashes? rather than length
 - [x] Fast LangDetect worth adding? Does it overcome anything beyond GIL which is already fixed? -> yes, it's faster and more accurate, though heavier
-- [ ] Change date range?
+- [x] Change date range to match Amin et al
 
 Amin et al. missing pieces: see DFD [here](https://drive.google.com/file/d/1JKyW9sdZcWSQ44bmUfituQ8JH_eMpDWj/view?usp=sharing)
 
