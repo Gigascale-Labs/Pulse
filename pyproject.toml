@@ -10,7 +10,7 @@ dependencies = [
     "dask-cuda==26.6.0",
     "datasets>=5.0.0",
     "duckdb>=1.5.3",
-    "langdetect>=1.0.9",
+    "fast-langdetect>=0.3.0",
     "matplotlib>=3.11.0",
     "numpy>=2.4.6",
     "polars>=1.41.2",
