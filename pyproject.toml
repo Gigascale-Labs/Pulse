@@ -13,6 +13,7 @@ dependencies = [
     "duckdb>=1.5.3",
     "langdetect>=1.0.9",
     "matplotlib>=3.11.0",
+    "nbdiff>=1.0.3",
     "numpy>=2.4.6",
     "openai>=2.44.0",
     "polars>=1.41.2",
