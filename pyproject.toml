@@ -19,6 +19,7 @@ dependencies = [
     "sentence-transformers>=5.5.1",
     "torch>=2.12.0",
     "transformers>=5.11.0",
+    "nbdime>=4.0.4",
 ]
 
 [dependency-groups]
