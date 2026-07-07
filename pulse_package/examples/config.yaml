@@ -1,0 +1,71 @@
+runtime:
+  device: cuda:0,1
+
+data:
+  dataset_name: SimulaMet/moltbook-observatory-archive
+  dataset_config: posts
+  split: archive
+  cache_dir: /datapool/analysis_data/proj-sim/observatory_data
+  start_date: "2026-01-28"
+  end_date: "2026-02-15"
+  date_column: created_at
+  title_column: title
+  content_column: content
+  text_column: text
+
+preprocessing:
+  spam_patterns:
+    - '"op"\s*:\s*"mint"'
+    - '"op"\s*:\s*"link"'
+    - '"p"\s*:\s*"mbc-20"'
+  lang_filter: en
+  remove_stopwords: true
+  min_words_after_stopwords: 10
+  chunk_size: 512
+  chunk_overlap: 64
+
+embedding:
+  model_name: all-MiniLM-L6-v2
+  batch_size: 4069
+  generate: true
+  cache_dir: /datapool/analysis_data/proj-sim/embeddings
+  load_path:
+  normalize_embeddings: true
+
+sampling:
+  sample_size: 100000
+  seed: 67
+
+reduction:
+  pca:
+    mode: variance
+    explained_variance: 0.90
+    n_components: 50
+    pca50_components: 50
+  umap:
+    enabled: true
+    n_components: 3
+    n_neighbors: 30
+    min_dist: 0.0
+    random_state: 42
+    metric: cosine
+
+clustering:
+  kmeans:
+    enabled: true
+    backend: cuml
+    cluster_sizes: [6, 13, 17, 29]
+    sweep_min_k: 3
+    sweep_max_k: 29
+    random_state: 42
+    n_init: 10
+    n_posts_per_cluster: 500
+  density:
+    enabled: false
+    dbscan_eps_values: [0.2, 0.5, 1.0, 2.0, 3.0, 5.0]
+    dbscan_min_samples: 10
+    hdbscan_min_cluster_sizes: [50, 100, 200, 500, 1000]
+    n_posts_per_cluster: 3
+
+output:
+  persona_dump_dir: /datapool/analysis_data/proj-sim/persona_dumps
