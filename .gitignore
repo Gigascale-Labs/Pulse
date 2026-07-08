@@ -1,5 +1,8 @@
 # Add your UV venv name so you exclude your source package layout
-.venv/
+psim
+
+# Coding assistants
+.claude
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

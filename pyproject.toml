@@ -11,7 +11,8 @@ dependencies = [
     "dask-cuda==26.6.0",
     "datasets>=5.0.0",
     "duckdb>=1.5.3",
-    "langdetect>=1.0.9",
+    "fast-langdetect>=0.3.0",
+    "nltk>=3.0",
     "matplotlib>=3.11.0",
     "nbdiff>=1.0.3",
     "nbdime>=4.0.4",
@@ -22,9 +23,12 @@ dependencies = [
     "sentence-transformers>=5.5.1",
     "torch>=2.12.0",
     "transformers>=5.11.0",
+    "nbdime>=4.0.4",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.3.0",
+    "nbclient>=0.11.0",
+    "nbformat>=5.10.4",
 ]
