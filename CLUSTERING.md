@@ -5,7 +5,7 @@
 |   | Pipeline | Output |
 |---|---|---|
 | 1 | PCA(variance target=(90%)) ===  PCA(var=90) | `embeddings` |
-| 2 | PCA(constant n dims=(50))) === PCA(n=50) | `embeddings_pca50` |
+| 2 | PCA(constant n dims=(50)) === PCA(n=50) | `embeddings_pca50` |
 | 3 | UMAP | `embeddings_umap` |
 | 4 | PCA(var) -> UMAP | `embeddings_pcavar_umap` |
 | 5 | PCA(50) -> UMAP | `embeddings_pca50_umap` |

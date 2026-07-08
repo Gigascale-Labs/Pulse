@@ -51,7 +51,10 @@ centroids of clusters → cosine similarity → top-N posts per cluster
 ```
 
 ### Stage 4 — Persona Generation
+![Highlighted pseudocode of the RAG stage](images/stage_2_pseudocode.png)
 ```
+Pseudocode showing RAG pipeline (clusters -> persona descs.)
+
 cluster_k_posts.txt → MiroFish GraphRAG pipeline
   → entity graph per cluster
   → NL persona descriptions
