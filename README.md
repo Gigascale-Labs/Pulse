@@ -48,6 +48,20 @@ centroids of clusters → cosine similarity → top-N posts per cluster
 
 ### Stage 4 — MiroFish Persona Generation
 ```
+Load embeddings into inplace database
+RQE = 0, target_RQE = 0.6, retries = 0
+While RQE < target_RQE
+  If retries > 0 then make prompt generate more distinct persona attributes       # vague on how to do this
+  Personas = {}
+  For each cluster:
+    Query db by cosine similarity for k highest posts
+    Rerank posts using Cohere # also vague on how Cohere is used
+    Feed posts to LLM to generate behavioral patterns, attributes, and essence based name (creating this cluster’s persona).
+    Append to personas
+  Retries += 1
+  Recalculate RQE for personas list
+Print persona descriptions
+
 cluster_k_posts.txt → MiroFish GraphRAG pipeline
   → entity graph per cluster
   → NL persona descriptions
