@@ -61,6 +61,14 @@ cluster_k_posts.txt → MiroFish GraphRAG pipeline
   → MiroFish simulation
 ```
 
+### Stage 5 — Discussion simulation
+![Pseudocode of the persona simulation stage](images/stage_4_pseudocode.png)
+```
+Pseudocode showing RAG pipeline (clusters -> persona descs.)
+
+NL persona descriptions → Persona LLM simulation
+  → simulated conversation transcript
+```
 ---
 
 ## Next steps on amin-preprocessing-replication branch
