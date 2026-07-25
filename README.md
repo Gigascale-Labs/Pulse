@@ -4,32 +4,18 @@
 
 ---
 
-## Draught Architecture
 
-```
-Moltbook (3.1M posts)                    MiroFish simulation
-  ↓                                            ↓
-MiniLM 384-D embeddings             GraphRAG → entity graph
-  ↓                                            ↓
-k-means archetypes          →       NL persona descriptions
-  ↓                                            ↓
-representative posts        →       agent personas + memories
-                                             ↓
-                                        simulation engine
-```
-
-The persona extraction pipeline produces the parameterisations for downstream simulators.
-
----
-
-## Current Progress
+## Methodology
 
 We conduct a full replication of 
 
 Amin et al., 2026. _How to Model AI Agents as Personas?: Applying the Persona Ecosystem
 Playground to 41,300 Posts on Moltbook for Behavioral Insights_: https://arxiv.org/pdf/2603.03140
 
-### Stage 1 — Embedding
+### Stage 0: Data Collection, Cleaning, and Preprocessing
+
+![Highlighted pseudocode of the RAG stage](images/stage_0_pseudocode.png)
+
 ```
 SimulaMet/moltbook-observatory-archive dataset (3.1M posts)
   → text cleaning
@@ -37,32 +23,29 @@ SimulaMet/moltbook-observatory-archive dataset (3.1M posts)
   → moltbook_embeddings.npy (3105136, 384)
 ```
 
-### Stage 2 — Clustering
+### Stage 1: Identifying Behavioural Archetypes
+
+![Highlighted pseudocode of the RAG stage](images/stage_1_pseudocode.png)
+
 ```
 moltbook_embeddings.npy
   → Sweep for optimal silhouette score on subsample using MiniBatchKMeans efficient KMeans algorithm
   → cluster_labels.npy, cluster_centroids.npy
 ```
 
-### Stage 3 — Representative Post Retrieval
+### Stage 2: Generating Data-Driven Personas
+
+![Highlighted pseudocode of the RAG stage](images/stage_2_pseudocode.png)
+
 ```
 centroids of clusters → cosine similarity → top-N posts per cluster
   → cluster_k_posts.txt
 ```
 
-### Stage 4 — Persona Generation
-![Highlighted pseudocode of the RAG stage](images/stage_2_pseudocode.png)
-```
-Pseudocode showing RAG pipeline (clusters -> persona descs.)
+### Stage 3: Validating Behavioral Grounding
 
-cluster_k_posts.txt → MiroFish GraphRAG pipeline
-  → entity graph per cluster
-  → NL persona descriptions
-  → MiroFish simulation
-```
-
-### Stage 5 — Discussion simulation
 ![Pseudocode of the persona simulation stage](images/stage_4_pseudocode.png)
+
 ```
 Pseudocode showing RAG pipeline (clusters -> persona descs.)
 
@@ -70,6 +53,10 @@ NL persona descriptions → Persona LLM simulation
   → simulated conversation transcript
 ```
 ---
+
+### Stage 4: Deploying Personas in PEP 
+
+Not applicable.
 
 ## Next steps on amin-preprocessing-replication branch
 
@@ -93,4 +80,3 @@ Amin et al. missing pieces: see DFD [here](https://drive.google.com/file/d/1JKyW
 
 - Amin, D., Salminen, J., Jansen, B.J. (2026). *How to Model AI Agents as Personas?* arXiv:2603.03140
 - Jiang, Y. et al. (2026). *Humans welcome to observe: A First Look at the Agent Social Network Moltbook.* arXiv:2602.10127
-- Guo, H. (2025). *MiroFish: A Simple and Universal Swarm Intelligence Engine.* github.com/666ghj/MiroFish
