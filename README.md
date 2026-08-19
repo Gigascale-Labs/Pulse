@@ -29,7 +29,8 @@ SimulaMet/moltbook-observatory-archive dataset (3.1M posts)
 
 ```
 moltbook_embeddings.npy
-  → Sweep for optimal silhouette score on subsample using MiniBatchKMeans efficient KMeans algorithm
+  → L2-normalise the PCA output, then sweep for optimal cosine silhouette on the subsample
+    using spherical KMeans (GPU Lloyd loop, cosine assignment, centroids kept on the unit sphere)
   → cluster_labels.npy, cluster_centroids.npy
 ```
 
